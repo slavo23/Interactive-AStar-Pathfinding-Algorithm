@@ -2,20 +2,7 @@ from grid import Grid
 import pygame
 import sys
 
-grid1 = [[0,0,0,0,0,0,0,0,0,0],
-        [0,1,1,0,2,1,1,1,1,0],
-        [0,1,1,0,1,1,1,1,1,0],
-        [0,1,1,0,1,1,1,1,1,0],
-        [0,1,1,0,0,0,0,1,1,0],
-        [0,1,1,1,1,1,1,1,1,0],
-        [0,1,0,1,1,1,1,1,1,0],
-        [0,1,0,1,1,1,1,1,1,0],
-        [0,3,0,1,1,1,1,1,1,0],
-        [0,0,0,0,0,0,0,0,0,0]]
 
-
-
-SCREEN_SIZE = (600, 600)
 
 class Cell:
     def __init__(self, x, y, value, b_box = None):
@@ -26,7 +13,7 @@ class Cell:
 
 
 class App:
-    def __init__(self, grid, width=600, height=600):
+    def __init__(self, grid, width, height):
         self.grid   = grid
         self.width  = width
         self.height = height
@@ -35,7 +22,7 @@ class App:
         self.running = True
         self.app     = pygame
         self.app.init()
-        self.window  = self.app.display.set_mode(SCREEN_SIZE, 0, 32)
+        self.window  = self.app.display.set_mode((self.width, self.height), 0, 32)
         self.clock   = self.app.time.Clock()
         self.dragged = False
         self.current = None
